@@ -1,17 +1,70 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      <ion-icon name="stats-chart" color="primary"></ion-icon> Estadísticas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-item>
+      <ion-icon name="analytics" slot="start"></ion-icon>
+      <ion-label>Nicaragua</ion-label>
+    </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <h2 class="ion-text-center">{{nicaragua.total_cases || 0}}</h2>
+          <p class="ion-text-center">Total Confirmados</p>
+        </ion-col>
+        <ion-col>
+          <h2 class="ion-text-center">{{nicaragua.total_deaths || 0}}</h2>
+          <p class="ion-text-center">Total Fallecidos</p>
+        </ion-col>
+        <ion-col>
+          <h2 class="ion-text-center">{{nicaragua.total_recovered || 0}}</h2>
+          <p class="ion-text-center">Total Recuperados</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="globe-outline" slot="start"></ion-icon>
+      <ion-label>Global</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <h2 class="ion-text-center">{{global.total_cases || 0}}</h2>
+          <p class="ion-text-center">Total Confirmados</p>
+        </ion-col>
+        <ion-col>
+          <h2 class="ion-text-center">{{global.death_cases || 0}}</h2>
+          <p class="ion-text-center">Total Fallecidos</p>
+        </ion-col>
+        <ion-col>
+          <h2 class="ion-text-center">{{global.recovery_cases || 0}}</h2>
+          <p class="ion-text-center">Total Recuperados</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+  <p class="ion-text-center">
+    <ion-icon name="information-circle-outline"></ion-icon><br>La COVID-19 es la enfermedad infecciosa causada por el
+    coronavirus que se ha descubierto más recientemente. Tanto el nuevo virus como la enfermedad eran desconocidos antes
+    de que estallara el brote en Wuhan (China) en diciembre de 2019.
+  </p>
+  <p class="thin-text ion-text-center">Fuente: WHO/OMS (https://www.who.int/ith/es/)</p>
+
+  <ion-button shape="round" expand="block" color="secondary" (click)="moreInfo()">
+    <ion-icon slot="start" name="add"></ion-icon>
+  Más Información Local
+  </ion-button>
 </ion-content>
